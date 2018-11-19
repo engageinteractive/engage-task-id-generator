@@ -22,7 +22,7 @@ class ClientListing {
                 var id = Math.floor((Math.random() * 99999) + 1);
                 
                 if (abbrv.length > 0){
-                    var ref = abbrv + id;
+                    var ref = "[" + abbrv + id + "]";
 
                     document.getElementById('generatedAnchor').innerHTML = ref + ' added to clipboard';
 
