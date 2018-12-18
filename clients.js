@@ -25,8 +25,8 @@ class ClientListing {
             $span.dataset.value = obj.value;
             $span.innerHTML = obj.text;
             $span.addEventListener('click', () => {
-                console.log('test', obj);
-                ctx.copyToClipboard(obj.value);
+                var ref = ctx.getRef(obj.value)
+                ctx.copyToClipboard(ref);
             });
             $history.appendChild($span);
         });
@@ -61,6 +61,10 @@ class ClientListing {
 
     }
 
+    getRef(abbrv) {
+        return '[' + abbrv + Math.floor((Math.random() * 99999) + 1) + ']';
+    }
+
     updateData(data) {
 
         if (data.length > 0) {
@@ -82,35 +86,45 @@ class ClientListing {
             const context = this;
 
             select.onchange = function(e) {
-                var index = this[this.selectedIndex];
 
+                var index = this[this.selectedIndex];
                 var abbrv = index.value;
 
-                var id = Math.floor((Math.random() * 99999) + 1);
-                
-                if (abbrv.length > 0){
-
-                    var ref = "[" + abbrv + id + "] ";
+                if( abbrv.length > 0 ){
+                    
+                    var ref = context.getRef(abbrv);
 
                     context.copyToClipboard(ref);
 
-                    // Add new thing at 0
-                    history.unshift({
-                        value: ref,
-                        text: index.text
+                    let exists = false;
+
+                    history.forEach((obj) => {
+                        if( obj.value === abbrv ){
+                            exists = true;
+                        }
                     });
 
-                    // Remove the last thing if > 3
-                    if( history.length > 3 ){
-                        history.pop();
+                    if( !exists ){
+
+                        // Add new thing at 0
+                        history.unshift({
+                            value: abbrv,
+                            text: index.text
+                        });
+
+                        // Remove the last thing if > 3
+                        if( history.length > 3 ){
+                            history.pop();
+                        }
+
+                        context.updateHistory(context);
+
+                        // Store new
+                        chrome.storage.sync.set({
+                            history: history
+                        });
+                    
                     }
-
-                    context.updateHistory(context);
-
-                    // Store new
-                    chrome.storage.sync.set({
-                        history: history
-                    });
 
                 } else {
                     
