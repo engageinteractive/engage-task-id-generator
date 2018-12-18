@@ -1,10 +1,71 @@
+let history = [];
+
 class ClientListing {
+
+    getHistory(result, ctx) {
+
+        if( result.history ){
+
+            history = result.history;
+
+            ctx.updateHistory(ctx);
+        
+        }
+
+    }
+
+    updateHistory(ctx) {
+
+        var $history = document.getElementById('history');
+
+        $history.innerHTML = '';
+
+        history.forEach((obj) => {
+            var $span = document.createElement('span');
+            $span.dataset.value = obj.value;
+            $span.innerHTML = obj.text;
+            $span.addEventListener('click', () => {
+                console.log('test', obj);
+                ctx.copyToClipboard(obj.value);
+            });
+            $history.appendChild($span);
+        });
+
+    }
+
+    copyToClipboard(ref) {
+
+        var select = document.getElementById('listClients');
+        var msg = document.getElementById('message');
+        var p = document.getElementById('generatedAnchor');
+
+        p.innerHTML = '<strong>' + ref + '</strong>added to clipboard';
+        msg.classList.add('message--show');
+
+        setTimeout(() => {
+            msg.classList.remove('message--show');
+            select.value = 'default';
+        }, 3000);
+        
+        var input = document.createElement('input');
+
+        input.setAttribute('value', ref);
+
+        document.body.appendChild(input);
+
+        input.select();
+
+        document.execCommand("copy");
+
+        document.body.removeChild(input);
+
+    }
 
     updateData(data) {
 
         if (data.length > 0) {
-            var list = JSON.parse(data);
 
+            var list = JSON.parse(data);
             var select = document.getElementById('listClients');
 
             list.clients.forEach(function(element) {
@@ -14,6 +75,12 @@ class ClientListing {
                 select.appendChild(opt);
             });
 
+            chrome.storage.sync.get('history', (result) => {
+                this.getHistory(result, this);
+            });
+
+            const context = this;
+
             select.onchange = function(e) {
                 var index = this[this.selectedIndex];
 
@@ -22,21 +89,29 @@ class ClientListing {
                 var id = Math.floor((Math.random() * 99999) + 1);
                 
                 if (abbrv.length > 0){
-                    var ref = "[" + abbrv + id + "]";
 
-                    document.getElementById('generatedAnchor').innerHTML = ref + ' added to clipboard';
+                    var ref = "[" + abbrv + id + "] ";
 
-                    var input = document.createElement('input');
+                    context.copyToClipboard(ref);
 
-                    input.setAttribute('value', ref);
+                    // Add new thing at 0
+                    history.unshift({
+                        value: ref,
+                        text: index.text
+                    });
 
-                    document.body.appendChild(input);
+                    // Remove the last thing if > 3
+                    if( history.length > 3 ){
+                        history.pop();
+                    }
 
-                    input.select();
+                    context.updateHistory(context);
 
-                    document.execCommand("copy");
+                    // Store new
+                    chrome.storage.sync.set({
+                        history: history
+                    });
 
-                    document.body.removeChild(input);
                 } else {
                     
                 }
