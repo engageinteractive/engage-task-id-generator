@@ -2,20 +2,17 @@ let history = [];
 
 class ClientListing {
 
-    getHistory(result, ctx) {
-
+    getHistory(result, ctx)
+    {
         if( result.history ){
-
             history = result.history;
 
             ctx.updateHistory(ctx);
-        
         }
-
     }
 
-    updateHistory(ctx) {
-
+    updateHistory(ctx)
+    {
         var $history = document.getElementById('history');
 
         $history.innerHTML = '';
@@ -30,11 +27,10 @@ class ClientListing {
             });
             $history.appendChild($span);
         });
-
     }
 
-    copyToClipboard(ref) {
-
+    copyToClipboard(ref)
+    {
         var select = document.getElementById('listClients');
         var msg = document.getElementById('message');
         var p = document.getElementById('generatedAnchor');
@@ -58,15 +54,15 @@ class ClientListing {
         document.execCommand("copy");
 
         document.body.removeChild(input);
-
     }
 
-    getRef(abbrv) {
+    getRef(abbrv)
+    {
         return '[' + abbrv + Math.floor((Math.random() * 99999) + 1) + ']';
     }
 
-    updateData(data) {
-
+    updateData(data)
+    {
         if (data.length > 0) {
 
             var list = JSON.parse(data);
@@ -105,7 +101,6 @@ class ClientListing {
                     });
 
                     if( !exists ){
-
                         // Add new thing at 0
                         history.unshift({
                             value: abbrv,
@@ -123,22 +118,38 @@ class ClientListing {
                         chrome.storage.sync.set({
                             history: history
                         });
-                    
                     }
-
                 } else {
-                    
+
                 }
             }
         }
 
     }
-    
-} 
 
-fetch('./data/clients.json')
+    getClientListing(url)
+    {
+        var s3 = JSON.parse(url);
+
+        fetch(s3.url, {mode: 'cors'})
+            .then(
+                response => response.text()
+            )
+            .then(
+                json => new ClientListing().updateData(json)
+            )
+            .catch(
+                error => console.log('Request failed', error)
+            );
+    }
+}
+
+fetch('./data/s3.json')
     .then(
         response => response.text()
     ).then(
-        json => new ClientListing().updateData(json)
+        json => new ClientListing().getClientListing(json)
+    )
+    .catch(
+        error => console.log('Request failed', error)
     );
