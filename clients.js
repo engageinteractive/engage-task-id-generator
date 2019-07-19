@@ -1,4 +1,5 @@
 let history = [];
+let initials = '';
 
 class ClientListing {
 
@@ -26,6 +27,29 @@ class ClientListing {
                 ctx.copyToClipboard(ref);
             });
             $history.appendChild($span);
+        });
+    }
+
+    getInitials(result, ctx)
+    {
+        if( result.initials ){
+            initials = result.initials;
+
+            ctx.updateInitials();
+        }
+    }
+
+    updateInitials(ctx)
+    {
+        var $initials = document.getElementById('fa-initials');
+        $initials.value = initials;
+    }
+
+    setInitials()
+    {
+        var $initials = document.getElementById('fa-initials');
+        chrome.storage.sync.set({
+            initials: $initials.value
         });
     }
 
@@ -124,6 +148,24 @@ class ClientListing {
                 }
             }
         }
+
+        var $initials = document.getElementById('fa-initials');
+
+        chrome.storage.sync.get('initials', (result) => {
+            this.getInitials(result, this);
+        });
+
+        $initials.addEventListener('keyup', () => {
+            this.setInitials();
+        });
+
+        var $initialsBtn = document.getElementById('fa-btn');
+        $initialsBtn.addEventListener('click', () => {
+            const date = new Date().toISOString().split('T')[0].replace(/-/g, '');
+            const usr = $initials.value.toUpperCase();
+            const stamp = `${usr}${date}`;
+            this.copyToClipboard(stamp);
+        });
 
     }
 
