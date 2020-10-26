@@ -31,7 +31,7 @@
 			<svg
 				viewBox="0 0 231 231"
 				xmlns="http://www.w3.org/2000/svg"
-				class="absolute z-0 top-0 left-0 w-full"
+				class="absolute z-0 top-0 bottom-0 left-0 opacity-50"
 			>
 				<path d="M0 31l200 200H0V31z" class="fill-gray-100 dark:fill-gray-800" />
 				<path d="M200 231H27l87-86 86 86z" class="fill-gray-200 dark:fill-gray-700" />
