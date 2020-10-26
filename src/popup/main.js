@@ -26,7 +26,7 @@ chrome.storage.sync.get(['storage'], (result) => {
 
 		data() {
 			return {
-				briefs: dev ? 'brief-templates.html' : 'brief-templates.html',
+				briefs: dev ? 'brief-templates.html' : 'https://engageinteractive.s3.eu-west-1.amazonaws.com/extensions/task-id-generator/brief-templates.html',
 				clients: dev ? 'clients.json' : 'https://s3-eu-west-1.amazonaws.com/engageinteractive/extensions/task-id-generator/clients.json',
 				ready: false,
 				storage: Object.assign({}, defaultStorage, result.storage) || defaultStorage,
