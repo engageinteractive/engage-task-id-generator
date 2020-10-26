@@ -1,0 +1,224 @@
+{
+	"clients": [
+	  {
+		"name": "Arc Inspirations",
+		"abbrv": "ARC"
+	  },
+	  {
+		"name": "ATC Properties Ltd",
+		"abbrv": "ATC"
+	  },
+	  {
+		"name": "At The Races",
+		"abbrv": "ATR"
+	  },
+	  {
+		"name": "Beer-Inn Print",
+		"abbrv": "BIP"
+	  },
+	  {
+		"name": "Bill's",
+		"abbrv": "BI"
+	  },
+	  {
+		"name": "Bistrot Pierre",
+		"abbrv": "BP"
+	  },
+	  {
+		"name": "Bookatable",
+		"abbrv": "BOO"
+	  },
+	  {
+		"name": "BOP: Ed's Easy Diner",
+		"abbrv": "EED"
+	  },
+	  {
+		"name": "BOP: Giraffe",
+		"abbrv": "GIR"
+	  },
+	  {
+		"name": "Boparan",
+		"abbrv": "BOP"
+	  },
+	  {
+		"name": "British Ceramic Tile",
+		"abbrv": "BCT"
+	  },
+	  {
+		"name": "Britvic",
+		"abbrv": "BRI"
+	  },
+	  {
+		"name": "BT: Bettys",
+		"abbrv": "BH"
+	  },
+	  {
+		"name": "BT: Bettys and Taylors",
+		"abbrv": "BT"
+	  },
+	  {
+		"name": "BT: Taylors",
+		"abbrv": "TH"
+	  },
+	  {
+		"name": "Cantina Laredo",
+		"abbrv": "CL"
+	  },
+	  {
+		"name": "CATCH",
+		"abbrv": "CAT"
+	  },
+	  {
+		"name": "Clarion Solicitors",
+		"abbrv": "CS"
+	  },
+	  {
+		"name": "Colour Me Beautiful",
+		"abbrv": "CMB"
+	  },
+	  {
+		"name": "Coronation Street",
+		"abbrv": "COR"
+	  },
+	  {
+		"name": "Crystal Maze",
+		"abbrv": "CRY"
+	  },
+	  {
+		"name": "Daddy Donkey",
+		"abbrv": "DD"
+	  },
+	  {
+		"name": "Diageo",
+		"abbrv": "DIA"
+	  },
+	  {
+		"name": "Eagle Eye",
+		"abbrv": "EE"
+	  },
+	  {
+		"name": "Elf On The Shelf",
+		"abbrv": "EOTS"
+	  },
+	  {
+		"name": "Emmerdale",
+		"abbrv": "EMM"
+	  },
+	  {
+		"name": "Engage",
+		"abbrv": "ENG"
+	  },
+	  {
+		"name": "Heineken",
+		"abbrv": "HEI"
+	  },
+	  {
+		"name": "HS: Harrison Spinks",
+		"abbrv": "HS"
+	  },
+	  {
+		"name": "HS: Herdysleep",
+		"abbrv": "HER"
+	  },
+	  {
+		"name": "Indoor Cycling Group",
+		"abbrv": "ICG"
+	  },
+	  {
+		"name": "Jet2",
+		"abbrv": "J2"
+	  },
+	  {
+		"name": "Lawcris",
+		"abbrv": "LAW"
+	  },
+	  {
+		"name": "Leeds Digital Festival",
+		"abbrv": "LDF"
+	  },
+	  {
+		"name": "Limehouse",
+		"abbrv": "LIM"
+	  },
+	  {
+		"name": "LOOP",
+		"abbrv": "LOO"
+	  },
+	  {
+		"name": "Mitchells & Butlers",
+		"abbrv": "MB"
+	  },
+	  {
+		"name": "MOJO",
+		"abbrv": "MOJ"
+	  },
+	  {
+		"name": "MotoNovo",
+		"abbrv": "MF"
+	  },
+	  {
+		"name": "Omega",
+		"abbrv": "OME"
+	  },
+	  {
+		"name": "Papakata",
+		"abbrv": "PAP"
+	  },
+	  {
+		"name": "RK Harris",
+		"abbrv": "RKH"
+	  },
+	  {
+		"name": "Steenbergs",
+		"abbrv": "STE"
+	  },
+	  {
+		"name": "Strada",
+		"abbrv": "STR"
+	  },
+	  {
+		"name": "Theakston",
+		"abbrv": "THE"
+	  },
+	  {
+		"name": "TTI",
+		"abbrv": "TTI"
+	  },
+	  {
+		"name": "UK Locations",
+		"abbrv": "UL"
+	  },
+	  {
+		"name": "Wakefield Grammar School",
+		"abbrv": "WGSF"
+	  },
+	  {
+		"name": "WB: Bar + Block",
+		"abbrv": "BB"
+	  },
+	  {
+		"name": "WB: Beefeater Grill",
+		"abbrv": "BG"
+	  },
+	  {
+		"name": "WB: Brewers Fayre",
+		"abbrv": "BF"
+	  },
+	  {
+		"name": "WB: Cookhouse & Pub",
+		"abbrv": "CP"
+	  },
+	  {
+		"name": "WB: cross brand",
+		"abbrv": "WB"
+	  },
+	  {
+		"name": "WB: Table Table",
+		"abbrv": "TT"
+	  },
+	  {
+		"name": "WB: Whitbread Inns",
+		"abbrv": "WI"
+	  }
+	]
+  }
