@@ -8,10 +8,6 @@
 			<tab label="Asana brief">
 				<brief :url="$root.$data.briefs" />
 			</tab>
-
-			<tab label="FA Timestamp">
-				<timestamp />
-			</tab>
 		</tabs>
 
 		<clipboard />
@@ -25,7 +21,6 @@ import Tabs from '@/components/Tabs.vue'
 import Tab from '@/components/Tab.vue'
 import TaskId from '@/components/TaskId.vue'
 import Brief from '@/components/Brief.vue'
-import Timestamp from '@/components/Timestamp.vue'
 import Clipboard from '@/components/Clipboard.vue'
 
 export default {
@@ -35,7 +30,6 @@ export default {
 		Tab,
 		TaskId,
 		Brief,
-		Timestamp,
 		Clipboard,
 		Egg: () => import('@/components/Egg.vue'),
 	},
