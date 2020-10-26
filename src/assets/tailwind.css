@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	@font-face {
+		font-family: BA;
+		font-weight: 600;
+		src: url(BuenosAiresWeb-Bold.woff2) format("woff2");
+	}
+	@font-face {
+		font-family: BA;
+		font-weight: 300;
+		src: url(BuenosAiresWeb-Light.woff2) format("woff2");
+	}
+	@font-face {
+		font-family: BA;
+		font-weight: 400;
+		src: url(BuenosAiresWeb-Regular.woff2) format("woff2");
+	}
+}
