@@ -4,8 +4,6 @@
   "description": "A multipurpose extension for use by the Engage team",
   "default_locale": "en",
   "permissions": [
-    "<all_urls>",
-    "*://*/*",
     "storage"
   ],
   "icons": {
